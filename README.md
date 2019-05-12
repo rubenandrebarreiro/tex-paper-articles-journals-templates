@@ -1,1 +1,1 @@
-# tex-paper-articles-journals-templates
+# TeX - Paper, Articles and Journals' Templates
