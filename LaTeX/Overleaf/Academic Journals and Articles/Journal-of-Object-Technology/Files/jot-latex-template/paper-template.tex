@@ -1,0 +1,66 @@
+\documentclass{jot}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{microtype} % optional, for aesthetics
+\usepackage{tabularx} % nice to have
+\usepackage{booktabs} % necessary for style
+% \usepackage{graphicx}
+% \graphicspath{{./figures/}}
+% \usepackage{listings}
+% \lstset{...}
+
+% \newcommand\code[1]{\texttt{#1}}
+% \let\file\code
+
+
+%%% Article metadata
+\title{The JOT Journal: Article \LaTeX\ Template}
+\runningtitle{RUNNING TITLE}
+
+\author[affiliation=orgname, nowrap] % , photo=FILE]
+    {First Author}
+    {is ...
+    Contact him at \email{EMAIL}, or visit \url{URL}.}
+
+\affiliation{orgname}{ORGANISATION}
+
+\runningauthor{RUNNING AUTHOR}
+
+\jotdetails{
+    volume=V,
+    number=N,
+    articleno=M,
+    year=2011,
+    doisuffix=jot.201Y.VV.N.aN,
+    license=ccbynd % choose from ccby, ccbynd, ccbyncnd
+}
+
+
+\begin{document}
+
+\begin{abstract}
+ABSTRACT
+\end{abstract}
+
+\keywords{Template; Keywords.}
+
+\section{SECTION}
+
+Please use this as a template for your paper.
+
+\backmatter
+
+\emph{NB: Please be sure to include DOIs (Digital Object Identifiers) for all cited articles, where available}
+
+\bibliographystyle{alphaurl}
+\bibliography{YOURBIB}
+
+\abouttheauthors
+
+\begin{acknowledgments}
+ACKS
+\end{acknowledgments}
+
+\end{document}

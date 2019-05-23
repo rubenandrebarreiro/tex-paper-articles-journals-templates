@@ -1,0 +1,102 @@
+%infocomp.sty, latex2e
+%Created (August 03, 1999)
+%by Joaquim Uchoa
+%Changed (October, 21 2004)
+%by Samuel Dias (name of the class)
+%Changed (December, 19 2004)
+%by Hyggo Almeida (ScieLo, ISI and DBLP style)
+%Changed (June 27, 2005)
+%by Rudini Sampaio (English translation)
+
+%Latex Style for INFOCOMP articles
+%\def\fpage{11}
+%\typein [\fpage]{Enter first page number}
+%\setcounter{page}{\fpage}
+%\typein [\lpage]{Enter last page number}
+\usepackage{times}
+
+%\def\lpage{18}
+\marginparwidth 0 true in
+
+\newdimen\footheight
+
+%\oddsidemargin  -10pt
+%\evensidemargin -10pt
+%\addtolength{\topmargin}{0.7cm}
+
+\usepackage{vmargin}
+\setmarginsrb{2.5cm}{3cm}{2.5cm}{2.5cm}{1.5cm}{0.5mm}{1cm}{0.5cm}
+% left - top - right - bottom - header - foot
+%% {leftmargin} {topmargin} {rightmargin} {bottommargin} {headheight} {headsep} {footheight} {footskip}
+\columnsep       0.5cm
+\columnseprule    0pt
+
+\parindent       0.5cm
+%\parskip  0cm
+\leftmargini     2em  \leftmargin\leftmargini
+\leftmarginv     .5em \leftmarginvi    .5em
+\flushbottom
+
+\def\section{\@startsection{section}{1}{\z@}{-3.25ex plus -1ex minus
+   -.2ex}{1.0ex plus .2ex}{\normalsize\bf\sffamily}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex plus -1ex minus
+   -.2ex}{1.0ex plus .2ex}{\small\bf\sffamily}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-3.25ex plus
+   -1ex minus -.2ex}{1.0ex plus .2ex}{\small\bf\sffamily}}
+\def\paragraph{\@startsection
+     {paragraph}{4}{\z@}{3.25ex plus 1ex minus .2ex}{-1em}{\normalsize\bf}}
+\def\subparagraph{\@startsection
+     {subparagraph}{4}{\parindent}{3.25ex plus 1ex minus
+     .2ex}{-1em}{\normalsize\bf}}
+
+\def\ps@plain{\let\@mkboth\@gobbletwo
+     \def\@oddhead{}\def\@oddfoote{}
+     \def\@evenhead{}\let\@evenfoot\@oddfoot}
+
+
+\def\shorttitle#1{\gdef\@shorttitle{#1}}
+\def\shortauthor#1{\gdef\@shortauthor{#1}}
+
+\def\@evenhead{}
+\def\@oddhead{}
+\def\@oddfoot{}
+\def\@evenfoot{}
+
+\newcommand{\authortag}[1]{$^{#1}$}
+
+\def\address#1{\gdef\@address{#1}}
+\def\abstract#1{\gdef\@abstract{#1}}
+\def\resumo#1{\gdef\@resumo{#1}}
+\def\palchaves#1{\gdef\@palchaves{#1}}
+\def\keywords#1{\gdef\@keywords{#1}}
+%\def\englishtitle#1{\gdef\@englishtitle{#1}}
+\def\receivedate#1{\gdef\@receivedate{#1}}
+\def\acceptdate#1{\gdef\@acceptdate{#1}}
+
+
+\def\@maketitle{\newpage
+ \null
+ \begin{center}
+   \vglue -6pt
+  {\Large\textsf{\textbf{\@title}}\par}
+   \vglue 12pt plus 6pt minus 3pt
+  {\normalsize\sc
+   \begin{tabular}[t]{c}\@author\end{tabular}\par}
+   \vglue 12pt plus 6pt minus 3pt
+  {\normalsize
+   \begin{tabular}[t]{c}\@address\end{tabular}\par}
+   \vglue 18pt plus 12pt minus 6pt
+ %  \vspace{1cm}
+%  {\Large\textsf{\textbf{\@englishtitle}}\par}
+% comment this line if the article does not have an abstract in English
+   {\quotation\noindent{\bf Resumo. }\@resumo\endquotation}
+      {\quotation\noindent{\bf Palavras-chaves: }\@palchaves\endquotation}
+  {\quotation\noindent{\bf Abstract. }\@abstract\endquotation}
+
+% comment this line if the article does not have keywords in English
+   {\quotation\noindent{\bf Keywords: }\@keywords\endquotation}
+%   \vspace{1cm}(Received \@receivedate~ / Accepted \@acceptdate)
+   \end{center}\par
+\vskip 12pt}
+\twocolumn
+%\bibliographystyle{infocomp}

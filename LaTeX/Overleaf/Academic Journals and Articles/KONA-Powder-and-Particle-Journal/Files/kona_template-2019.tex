@@ -1,0 +1,292 @@
+% Sample file for KONA
+% For ASCII pLaTeX2e
+% This file requires article.cls
+% 2017.01.13 by Nakanishi Printing Co., Ltd
+% 2017.06.26 modified by Hao Shi, MSM, University of Twente, the Netherlands
+% 2019.01.10 modified by Nakanishi Printing Co., Ltd
+
+\documentclass[twocolumn, 10pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[format=hang,labelfont=bf,textfont=small,singlelinecheck=false,justification=raggedright,margin={12pt,12pt},figurename=Fig.]{caption}
+\usepackage{titlesec}
+\usepackage{textcomp}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\def\affiliation#1{\gdef\@affiliation{#1}}
+\def\abstract#1{\gdef\@abstract{#1}}
+\def\graphabst#1{\gdef\@graphabst{#1}}
+\def\keywords#1{\gdef\@keywords{#1}}
+\def\corresp#1{\gdef\@corresp{#1}}
+\def\bioauthor#1#2{\centerline{\textbf{#1}}\par #2}
+\newcommand{\MakeTitle}{
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \Large \@title\par
+  \vskip 1em%
+  \large \@author
+  \end{center}
+  \noindent\@affiliation\par
+  \vskip 1em%
+  \noindent\@corresp\par
+  \vskip 1em%
+  \noindent\@abstract\par
+  \noindent\@graphabst\par
+  \vskip 1em%
+  \noindent\@keywords\par
+}
+\makeatother
+
+\setlength{\columnsep}{0.8cm}
+
+\newcommand*{\TitleFont}{%
+      \usefont{\encodingdefault}{\rmdefault}{}{n}%
+      \fontsize{18}{12}%
+      \selectfont}
+
+\titleformat{\section}
+  {\normalfont\fontsize{10}{11}\bfseries}{\thesection.}{2pt}{}
+  \titlespacing*{\section}{0pt}{12pt}{6pt}
+
+
+\titleformat{\subsection}
+  {\normalfont\fontsize{10}{10}\bfseries}{\thesubsection.}{2pt}{}
+  \titlespacing*{\subsection}{0pt}{6pt}{0pt}
+  
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{10}{10}\bfseries}{\thesubsubsection.}{2pt}{}
+  \titlespacing*{\subsubsection}{0pt}{6pt}{0pt}
+  
+\renewcommand{\baselinestretch}{1.10}\normalsize
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\TitleFont Type here your title, times new roman 18, centred. To prepare your paper use directly this template and simply replace this text by your text}
+\author{Ling N. CUI$^{\, 1}$, Toyokazu YOKOYAMA$^{2\ast }$}
+\affiliation{$^{1}$Affiliation, Address, \\
+$^{2}$Affiliation if different from 1, Address if different from 1}
+\corresp{$^{\ast }$correspopnding author only@email.it, Tel.:$+$81-72-867-1686; fax: $+$81-72-867-1658}
+
+\abstract{\textbf{Abstract}: This document contains formatting instructions for preparing a paper for KONA. These formatting instructions comply with the rules set by Hosokawa Powder Technology Foundation (HPTF) for the publication of the papers in the series: KONA Powder and Particle Journal.\\
+The manuscript title must be in ``Title Case'', i.e., when writing a name or a title, you should use capital letters only for the first word.\\
+Title should be followed by the list of authors in the format given above, denoting the corresponding author with an asterisk. Further should be given the author affiliations. Below that, the email and telephone and fax numbers of the corresponding author should be provided.\\
+Start this abstract paragraph which should summarize the scope, aims, results and conclusions of the work, and should not exceed 200 words. Below that, a graphical abstract should be provided, which should be a concise, visual summary of the article and will be displayed in the contents list both online on print.\\
+If you need assistance, please do not hesitate to contact KONA editorial secretariat, or any further address you may have received for this purpose.}
+
+\graphabst{
+\begin{center}
+%%%%\includegraphics[scale=0.65,angle=0]{Graphical_Abstract/KONA_graphical_abstract_v4.pdf}
+\end{center}
+}
+\keywords{\textbf{Keywords:} powder, particle, the appropriate number of keywords is 5 or 6.}
+
+
+\begin{document}
+
+\onecolumn
+\MakeTitle
+
+\twocolumn
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Format And Type Fonts}
+
+To prepare your paper, use directly this template and simply replace this text by your text. 
+
+These instructions are to be followed strictly, and it is strongly advised to use the styles indicated in this document between square brackets. It is strongly advised NOT to use formatting or styles in your paper different from the ones mentioned here. 
+
+\subsection{Format}
+The book size will be in A4 (210 x 297 mm). Left margin 25 mm, Right Margin 20 mm, Top Margin 25 mm and Bottom Margin 25 mm. Please make sure that you do not exceed the indicated type area.
+
+The structure of manuscripts should follow the following order; title, authors, affiliations, abstract, Graphical Abstract, keywords, main text, (acknowledgement), (appendix), (nomenclature), references. The items with parentheses are not mandatory. 
+
+The maximum pages printed in KONA are supposed to be 15 for an original paper and 25 for a review paper.
+
+Do NOT include page numbers. Do NOT add Headers or Footers.
+
+
+\subsection{Type font and type size}
+
+Prescribed font is Times New Roman, 10 points, with an 11 pts line spacing (1.1 multiple lines), 1 column.
+
+However, if your text contains complicated mathematical expressions or chemical formulae, you may need to increase the line spacing. Running text should be justified.
+
+\section{Section headings}
+
+The way chapter titles and other headings are displayed in these instructions, is meant to be followed in your manuscript.
+
+Level 1: Times New Roman, 11, Bold, 12 pt spacing before heading, 6 pt spacing below heading
+
+Successive Levels: Times New Roman, 10, Bold, 6 pt spacing before heading, NO spacing below heading, 
+
+Do NOT begin a new section directly at the bottom of the page, but transfer the heading to the top of the next page.
+
+\section{(Foot)notes}
+
+It is requested to minimize usage of footnotes. All references should be in the References. Explanations should be preferably included in the text. (Foot)notes placed at the bottom of the page should fit within the type area. Separate them clearly from the text by adding two line spaces. Use Times New Roman 8 pt.
+
+\section{Symbols and units, numbers }
+
+If symbols are defined in a nomenclature section, symbols and units should be listed in alphabetical order with their definition and dimensions in SI units. In principle, variables are to be presented in italics. 
+
+Please use the SI set of units as much as possible. Wherever the application domain uses a different set of units widely, please minimize the use of non-standard units or non-standard symbols for those units. As examples, the use of ``a'' for year (annum) is depreciated and the use of ``y'' is encouraged instead. Similarly, ``h'' should be used for hours instead of ``hr'' and ``t'' instead of ``ton'' or ``tonne''. It is important to take care of the case in which the measurement units are typed. E.g. ``Km'' does not mean ``kilometers'', but ``Kelvin-meters''. Powers of e are often more conveniently denoted by exp.
+
+When providing numerical values followed by measurement units, please leave a regular space or non-breaking space between each value and the measurement unit. This also includes percentages and degrees Celsius (e.g. 42~{\%} or 35 {\%}, 234 \textdegree C, 504 K). This rule also applies to the unit for litre, which is recommended to be capital ``L''.
+
+The authors are encouraged to render the numbers according to the International rules, specifying the dot as a decimal separator and the comma as a thousand's separator.
+
+
+\section{Equations}
+
+Make sure that placing and numbering of equations is consistent throughout your manuscript.
+\begin{gather}
+\label{eq1}
+\gamma_{\mbox{T}} \frac{\mbox{d}x}{\mbox{d}t}\,=\,F_{\mbox{d}} \,\cos 
+\varphi \,+\,\xi_{x} \mbox{(}t\mbox{)} \\
+\label{eq2}
+\overline {\mbox{C}} (t)=\frac{1}{N}\sum\limits_{i=1}^N {C_{i} } (t)
+\end{gather}
+Left align the equation and put the number of the equation flush-right, using a Right Tab on the right margin. Please reference equations in the text by writing: Eqn. .. (do not use Equation ..) In principle, variables are to be presented in italics.
+
+
+\section{Figures and tables}
+
+\subsection{General}
+
+Figures and tables should be originals or sharp prints. Please use the SI set of units as much as possible. Figures and tables should be centered and placed either at the top or at the bottom of the page. Please do not render tables as pictures and please do not use too small font sizes in the illustrations. Please use the following fonts in your illustrations: Times New Roman, Symbol, or use fonts that look similar.
+
+If your figures and tables are created in a Microsoft Office application (Word, PowerPoint, Excel) then please supply 'as is' in the native format, too. Regardless of the application used other than Microsoft Office, when your electronic artwork is finalized, please 'Save as' or convert the images to one of the following formats (note the resolution requirements for line drawings, halftones, and line/halftone combinations given below): 
+
+EPS (or PDF): Vector drawings, embed all used fonts. 
+
+TIFF (or JPEG): Color or grayscale photographs (halftones), keep to a minimum of 300 dpi. 
+
+TIFF (or JPEG): Bitmapped (pure black {\&} white pixels) line drawings, keep to a minimum of 1000 dpi. 
+
+TIFF (or JPEG): Combinations bitmapped line/half-tone (color or grayscale), keep to a minimum of 500 dpi.
+
+The colour figures will appear in colour both on the Web (\underline{http://www.kona.or.jp}) and in the paper version. 
+
+Authors are responsible for obtaining permission from the copyright holders to reproduce any figures, tables and photos for which copyright exists. And the copyright and permission notice should appear in table footnotes and figure captions. 
+
+\subsection{Tables}
+
+Set table number and title flush left above table. Horizontal lines should be placed above and below table headings and at the bottom of the table. Vertical lines should be avoided. Title should use Times New Roman 10, italic, with 12 pt before and 4 pts after the paragraph, left justified at the top of the table. Tables have to be included into the text. If a table is too long to fit one page, the table number and heading should be repeated on the next page before the table is continued. Alternatively the table may be spread over two consecutive pages (first an even numbered, then an odd-numbered page) turned by 90\textdegree , without repeating the heading.
+
+\textbf{Table 1} Table title should be placed above the table and adjust 
+text to table width.
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{lll}
+\hline
+heading1 & heading2& heading3  \\
+\hline
+Table size & can be & edited \\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+$^{a}$ Remarks or references regarding fields or data in the table. Use and adjust text to table width.
+
+$^{b }$Remarks or references regarding fields or data in the table. Use [Style: KONA\textunderscore Footnote] and adjust text to table width.
+\end{table}
+
+
+
+\subsection{Figure captions [Style: KONA Caption]}
+
+\textbf{Fig. 1 } Captions should be placed below each illustration, font Times New Roman, 9 pts, with 12 pt before and 12 pts after the paragraph. Figures and figure captions should be placed flush-left; two narrow figures may be placed side-by-side. Please reference figures in the text by writing: \textbf{Fig. }(do not use Figure)\textellipsis , reprinted with permission from Ref. (Tsuji et al., 1992). Copyright: (1992) Elsevier B.V.
+
+
+\section{Concerning references }
+
+In order to give our readers a sense of continuity, we encourage you to identify KONA articles of similar research in your papers. Please, do a literature check of the papers published in KONA in recent years at www.kona.or.jp.
+
+Concerning references type, the alphabetical system should be adopted. Please use reference management softwares such as all products that support \underline{Citation Style Language styles} {\small (http://citationstyles.org/)}, such as Mendeley and Zotero, as well as \underline{EndNote} {\small (https://endnote.com/)} to manage references as far as possible.
+
+\underline{Citation Style Language styles} {\small (https://www.\linebreak[2]zotero.org/styles?q=id\%3Akona-powder-and-particle-journal)} (supported by all reference management softwares written in CSL, such as Mendeley, and Zotero, Papers, and many others) arranged for KONA journal is recommended to use for the preparation of the paper.
+
+\underline{Endnote Style} {\small (https://endnote.com/style\_download/\linebreak[2]kona-powder-and-particle-journal/)} (within Endnote-reference management software) arranged for KONA journal is recommended to use for the preparation of the paper.
+
+Citation in the text to literature, is given by the surname and initial of the author(s) followed by the year of publication, e.g. "Tsuji Y. (1993) has reported ..., which was recently confirmed (Mori Y. and Fukumoto Y., 2002)." For references with more than two authors, text citations should be shortened to the first author followed by "et al.'', e.g. "Hidaka J. et al. (1995) have recently shown ...." However, in the list of References the names and initials of all authors should be mentioned. Just ``et al.'' is neither ethical nor politically correct.
+
+Two or more references by the same author published in the same year are differentiated by the letters a, b, c, etc. immediately after the year. The references should be listed in alphabetical order in the list of References. The articles in press should be used only if they have been accepted and 
+have already allocated their DOI (Digital Object Identifier).
+
+When you are referencing conference proceedings, page numbers should be provided. If proceedings are not available, the lecture identification -- e.g. lecture number should be provided instead.
+
+When you are referencing websites, an author or authoring institution should be provided. The date of the last access should be provided as well.
+
+The hyperlinks (blue colour and underlining) should be removed from email addresses and web references.
+
+You do not need to repeat http:// as modern browsers do not require it. However the date of the last access should be always provided.
+
+\section*{Acknowledgements}
+
+This scientific work was partly financed from the budget for sciences in the years 2010-2013 as Research Project No. NN209023739, and was also supported by Cummins Filtration Ltd.
+
+\newpage
+\section*{Nomenclature}
+
+Symbols and units should be listed in alphabetical order with their 
+definition and dimensions in SI units.
+
+\noindent
+\begin{tabular}{lp{17em}}
+AIT & Auto-Ignition Temperature (usually Minimum Auto-Ignition Temperature) \\
+CCPS & Center for Chemical Process Safety (USA) \\
+ISD & Inherently Safer Design \\
+LOC & Limiting Oxygen Concentration (below which explosion is not possible) \\
+PVC & Polyvinylchloride \\
+STP & Standard Temperature and Pressure \\
+$A$ & surface of filter sample (mm$^{2})$ \\
+$D$ & particle size ($\mu$m) \\
+$l$ & length (m) \\
+$m$ & mass (kg) \\
+$P$ & pressure (Pa) \\
+$t$ & time (s) \\
+$\Delta t$ & time duration of explosion \\
+$T$ & temperature (K) \\
+$V$ & volume of a vessel (L) \\
+$\alpha$ & filter average packing density (-) \\
+$\varepsilon$ & aggregate porosity (-)  \\
+$\varepsilon_{F}$ & filter porosity (-)  \\
+$\lambda$ & gas mean free path (m) \\
+$\mu$ & gas viscosity (Pa s) \\
+$\rho$ & solid concentration in the cluster (-) \\
+$\rho_{g }$ & gas density (kg m$^{-3})$ \\
+\end{tabular}
+
+
+\section*{References }
+
+Bonzel H.P., Bradshaw A.M., Ertl G., Eds., Physics and Chemistry of Alkali Metal Adsorption, Elsevier, Amsterdam, 1989.
+
+Iwakura Y., Fujisawa Y., Toyonaga N., Oral disintegrant tablet containing risperidone and method for producing the same, JP Patent, (2013) 
+JP2013060392A.
+
+Hosokawa K., Yokoyama T., Kondo A., Naito M., Application 19---Mechanical Synthesis of Composite Oxide and Its Application for SOFC Cathode, in: Naito M., Yokoyama T., Hosokawa K., Nogi K. (Eds.), Nanoparticle Technology Handbook (Third Edition), Elsevier,  2018, pp.505-510, ISBN: 9780444641106. DOI: 10.1016/B978-0-444-64110-6.00026-3
+
+Rico-Ramirez V., Napoles-Rivera F., Gonzalez-Alatorre G., Diwekar U., Stochastic optimal control for the treatment of a pathogenic disease, Chemical Engineering Transactions, 21 (2010) 217--222. DOI: 10.3303/CET11226001
+
+Tsuji Y., Tanaka T., Ishida T., Lagrangian numerical simulation of plug flow of cohesionless particles in a horizontal pipe, Powder Technology, 71 (1992) 239--250. DOI: 10.1016/0032-5910(92)88030-L
+
+WWF (World Wide Fund for Nature), 2002, Living planet report <www.wwf.de> accessed 20.01.2011. 
+
+Zhao X., Wang S., Yin X., Yu J., Ding B., Slip-effect functional air filter for efficient purification of PM2.5, Scientific Reports, 6 (2016) 35472. DOI: 10.1038/srep35472
+
+
+
+\end{document}
+
+
+

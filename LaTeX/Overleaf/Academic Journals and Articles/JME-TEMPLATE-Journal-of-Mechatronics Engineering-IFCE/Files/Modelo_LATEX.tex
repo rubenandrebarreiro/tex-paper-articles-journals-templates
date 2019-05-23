@@ -1,0 +1,183 @@
+\documentclass[10pt,brazil,english]{article}
+\usepackage{amsfonts}
+\usepackage{infocomp}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage[english, portuguese]{babel}
+\addto\captionsportuguese{
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\refname}{References}}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{setspace} % espacamento entre linhas
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{scalefnt}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{caption}
+\usepackage[sort,compress]{cite}
+\usepackage[alf,
+abnt-full-initials=no,
+abnt-emphasize=bf,								% Modificação para texto em negrito.
+abnt-and-type=e,
+abnt-url-package=url,
+abnt-repeated-author-omit=yes,abnt-etal-list=0]{abntex2cite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+\setcounter{page}{1}
+\fancyhead{ }
+\lhead{}
+\chead{\footnotesize Tittle 2 of the article}
+\rhead{}
+\cfoot{Journal of Mechatronics Engineering, v. xx, n. y, p. zzz - www, jan. 2018}
+\rfoot{\thepage}%Direita do Rodapé
+\renewcommand{\headrulewidth}{1pt}% Traço horizontal no cabeçalho
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{rangecite}
+
+%\hyphenation{po-pu-la-ri-za-ção re-gis-tros do-mi-na-do-ra vio-la pe-ram-bu-lam dou-tri-na-ria-men-te co-nhe-ce-rem Ad-mis-tra-ção fa-bri-car so-cie-da-de in-fe-rio-res vee-men-te-men-te si-tua-ção pon-tuais}
+
+\sloppy
+\renewcommand{\captionfont}{\footnotesize}
+\renewcommand{\captionlabelfont}{\footnotesize \bfseries}
+\newtheorem{exemplo}{Exemplo}
+\title{ \begin{picture}(0,0) \put(-10,40){\includegraphics[width=5cm]{JME_Logo}} \end{picture} Title of the article}
+
+\address{
+$^{1}$Institution 1 (SIGLA1) \\
+$^{2}$Institution 2 (SIGLA2)\\
+$^{3}$Institution 3 (SIGLA3)\\ \\
+\url{xxxx@yyy.br},~ \url{zzzz@rrr.com}, \\ ~ \url{tyuoo@uuu.br},~ \url{qqqq@ifxx.edu.br}\\ \\ DOI: xx.yyyyy/jme.v1i1.001} % Do not fill in DOI.
+
+\author{Autor 1$^{1}$, Autor 2$^{1}$, \\ Autor 3$^{2}$$^{,}$$^{3}$, Autor 4$^{3}$ }
+
+\selectlanguage{english}
+
+\abstract{Maximum 200 words.}
+
+\keywords{Keyword1. Keyword2. Keyword3. Keyword5. Keyword5. (maximum 5 keywords).}
+
+
+
+
+
+%\selectlanguage{brazil}
+
+%
+
+%\receivedate{July 19th, 2011}
+%\acceptdate{September 1st, 2011}
+
+\begin{document}
+\pagestyle{fancy} % CABECALHOO
+
+\maketitle
+\newpage
+
+
+\section{Introduction} 
+
+Write introduction.
+
+\section{Bibliographic review or state of art}
+
+Write Bibliographic review or state of art.
+
+Example of equation:
+
+\begin{equation}
+E=m.c^{2}
+\label{Eq1}
+\end{equation}
+
+\section{Methodology or Matherials and Methods}
+
+Write Methodology.
+
+\section{Results and discussion}
+
+Write results.
+
+An example of figure is shown in Figure \ref{Fig1}. An example of table can be seen in Table \ref{Tab1}.
+
+\begin{figure}[!hbtp]
+\begin{center}
+\includegraphics[scale=0.4]{JME_Logo.png}
+\end{center}
+\caption{Imagem da revista do IFCE. Fonte: (quando houver) inserir texto nesta posição.}
+\label{Fig1}
+\end{figure}
+
+
+
+\begin{table}[!hbtp]
+\centering
+\caption{Styles to be used.}
+\label{Tab1}
+\begin{tabular}{ll}
+\hline
+\textbf{Element}                        & \vline \textbf{Alignment}   \\ \hline
+Title of the article           & \vline Centralized \\ \hline
+Abstract                       & \vline Justified   \\ \hline
+Keywords                       & \vline Left        \\ \hline
+Section's title                & \vline Left        \\ \hline
+Subsection's title             & \vline Left        \\ \hline
+Text                           & \vline Justified   \\ \hline
+Caption of the figure or table & \vline Centralized \\ \hline
+Footnote                       & \vline Justified   \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Conflict of interest}
+
+Is there any conflict of interest?
+
+\section{Conclusion}
+
+Write Conclusion.
+
+\section{References}
+
+Examples of citation:
+
+\begin{itemize}
+\item \nocite{Alexandria2014} - No citation \textit{nocite{}};
+\item \cite{dana2010integral} - indirect citation;
+\item \citeonline{dana2010integral} - direct citation.
+\end{itemize}
+
+\begin{itemize}
+\item Article, paper \cite{dana2010integral};
+\item Book \cite{Dorigo2008};
+\item Internet link \cite{Reis2012};
+\item Book chapter \cite{Tavares2014};
+\item Thesis \cite{elfes1989occupancy} and dissertation \cite{Hsia2006};
+\item Conference \cite{Garrote2017};
+\end{itemize}
+
+
+\bibliography{Referencias}
+
+
+
+
+%\anex
+%\begin{anexosenv}
+%\onecolumn
+% ---
+
+
+
+\end{document} 

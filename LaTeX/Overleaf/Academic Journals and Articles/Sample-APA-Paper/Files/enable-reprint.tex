@@ -1,0 +1,26 @@
+% http://tex.stackexchange.com/questions/139805/how-to-differentiate-between-translated-and-reprinted-work-with-apa-style
+
+\renewbibmacro*{related:reprintfrom}[1]{%
+  \entrydata*{#1}{%
+    \printtext{\mkbibemph{\printfield[apacase]{title}}}%
+    \setunit{\bibpagespunct}%
+    \printfield{pages}%
+    \setunit{\addcomma\addspace}%
+    \bibstring{byauthor}\addspace
+    \printnames[apanames][-\value{listtotal}]{editor}%
+    \ifnameundef{editor}
+      {}
+      {\addcomma\addspace
+       \usebibmacro{apaeditorstrg}{editor}}
+    \printnames[apanames][-\value{listtotal}]{author}%
+    \setunit{\addcomma\addspace}%
+    \usebibmacro{date}%
+    \setunit{\addcomma\addspace}%
+    \usebibmacro{location+publisher}%
+    \newunit\newblock
+    \usebibmacro{related}}}
+
+
+\DefineBibliographyStrings{british}{
+  reprintfrom = {Reprinted from}
+}

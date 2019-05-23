@@ -1,0 +1,391 @@
+\documentclass{jot}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{tabularx,booktabs}
+\usepackage{xspace}
+\usepackage{textcomp}
+\usepackage{listings}
+% \usepackage{graphicx}
+\graphicspath{{./figures/}}
+
+%%%
+%%%  Custom commands and package setup
+%%%
+\lstset{
+    language=[LaTeX]TeX,
+    escapeinside={_}{_},
+    escapebegin={\rmfamily\textlangle\itshape},
+    escapeend={\upshape\textrangle},
+    gobble=4
+}
+\lstMakeShortInline[ % typeset sequences |like this| as code
+    escapeinside={_}{_},
+    escapebegin=\parambegin,
+    escapeend=\paramend
+]|
+
+\newcommand\parambegin{\rmfamily\textlangle\itshape}
+\newcommand\paramend{\upshape\textrangle}
+\newcommand\parameter[1]{{\parambegin#1\paramend}}
+\newcommand\code[1]{\texttt{#1}}
+\let\file\code
+\newcommand\jotcls{\file{jot.cls}\xspace}
+\newcommand\JOT{\caps{JOT}\xspace}
+\newcommand\githuburl{http://github.com/jotfm/jot}
+
+
+%%%
+%%%  Document & publication information
+%%%
+\title{Typesetting guidelines\\ for the Journal of Object Technology}
+\runningtitle{Typesetting guidelines for JOT}
+
+\author[affiliation=inria, photo=damien]
+    {Damien Pollet}
+    {   is an assistant professor at the Universit\'e de Lille~1, France.
+    
+        When he's not busy hacking the \LaTeX{} document class for \JOT and maintaining various web servers, he teaches software engineering or does research in the RMoD group, on better constructs and tools for dynamic programming languages, as well as on program visualization and reengineering.
+        
+        Contact him at \email{damien.pollet@inria.fr}, or visit \url{http://people.untyped.org/damien.pollet}.}
+
+\author[affiliation=scg, photo=oscar, nowrap]
+    {Oscar Nierstrasz}
+    {   is a professor of computer science at the Institute of Computer Science (\caps{IAM}) of the University of Bern, where he founded the Software Composition Group in 1994. 
+
+        \url{http://scg.unibe.ch/staff/oscar}.}
+
+\author[affiliation=inria, photo=stephane, nowrap]
+    {St\'ephane Ducasse}
+    {   is a research director at Inria Lille, where he founded the RMoD group in 2007.
+    
+        \url{http://stephane.ducasse.free.fr}.}
+
+\author[affiliation={inria,scg}, nowrap]
+    {Lynn V. Siebel}
+    {is a fictitious author who kindly accepted to demonstrate how the \jotcls class handles authors with multiple affiliations, but whose smile shall remain unseen.}
+
+\affiliation{inria}{RMoD, Inria Lille Nord Europe, France\\ \url{http://rmod.lille.inria.fr}}
+\affiliation{scg}{Software Composition Group, University of Bern, Switzerland\\ \url{http://scg.unibe.ch}}
+
+\runningauthor{Damien Pollet et al.}
+\jotdetails{
+    volume=0,
+    articleno=0,
+    year=2010,
+    % doisuffix=jot.2011.10.1.a1,
+    url={\githuburl}
+}
+
+
+%%%
+%%%  Manuscript
+%%%
+\begin{document}
+
+\begin{abstract}
+    This short manual documents the \jotcls \LaTeX{} document class, and provides guidelines and advice on how to use it to prepare and typeset article manuscripts for submission to \JOT, the Journal of Object Technology.
+\end{abstract}
+\keywords{typography, guideline, manual}
+
+
+
+\section{Installation and compatibility}
+
+The \jotcls project is hosted online at \url{\githuburl}. You can download stable versions from there, or directly clone the development sources from the version control repository.
+To install the package, simply copy the files somewhere where \TeX{} can find them.
+
+The class is developed and tested using the pdf\LaTeX{} toolchain, which is readily available in any modern \TeX{} distribution; the author uses \href{http://www.tug.org/texlive/}{\TeX{live}} on a Mac.
+Besides pdf\TeX{}, other \TeX{} engines or backends like \code{dvips} or \code{dvipdfm} \emph{should} work but are not supported.\footnote{The code does nothing to break them, at least not intentionally, so authors are free to work; nevertheless, in case the journal editors have to recompile articles from the \LaTeX{} sources, it's best if all submissions are guaranteed to compile cleanly with a single engine.}
+The \jotcls class requires the following packages, which are all part of the standard \TeX{live} contents:
+
+{\centering
+    \begin{tabular}{l@{\qquad}l@{\qquad}l@{\qquad}l}
+        \code{booktabs}
+        & \code{calc}
+        & \code{caption}
+        & \code{eso-pic} \\
+        \code{geometry}
+        & \code{graphicx}
+        & \code{hyperref}
+        & \code{ifthen} \\
+        \code{keyval}
+        & \code{listings}
+        & \code{placeins}
+        & \code{ragged2e} \\
+        \code{refcount}
+        & \code{soul}
+        & \code{wrapfig}
+        & \code{xcolor}
+    \end{tabular}\par}
+
+
+
+
+\section{General document structure}
+
+The \jotcls class builds on the standard \file{article.cls} from \LaTeX, so the document structure is pretty standard. The main differences concern how to declare the title, authors, affiliations, and publication information, and the end of the document. See \autoref{lst:template}, as well as the |template.tex| file in the \jotcls distribution for a more complete, reusable starting point.
+
+\begin{lstlisting}[style=float,
+        caption={Template for a new article main source file.},
+        label=lst:template]
+    \documentclass{jot}
+    _packages and preamble declarations_
+    
+    \title{ _paper title_ }
+    \author[_info_]{_name_}{ _bio text_ }
+    _more authors\dots_
+    \affiliation{_identifier_}{ _description_ }
+    _more affiliations\dots_
+    \jotdetails{ _publication information_ }
+    
+    \begin{document}
+        \begin{abstract}
+            _$\cdots$_
+        \end{abstract}
+        \keywords{_comma-separated list_}
+        
+        _manuscript content\dots_
+        
+        \backmatter
+        _appendices\dots_
+        \bibliographystyle{alphaurl}
+        \bibliography{_bib files_}
+
+        \abouttheauthors
+        \begin{acknowledgments}
+            _$\cdots$_
+        \end{acknowledgments}
+    \end{document}
+\end{lstlisting}
+
+We describe the syntax of the commands in details in the next section. For now, here is a summary of the differences:
+\begin{itemize}
+    \item title and author information is declared in the preamble and is automatically typeset; there is no need to call the |\maketitle| macro at the beginning of the document;
+    \item authors are declared independently, using one |\author| declaration each, and similarly for affiliations;
+    \item the |\jotdetails| command specifies journal publication information such as year, volume, number\dots
+\end{itemize}
+
+The main body of the article is organized just like with the standard |article| class, until we get to |\backmatter|.
+This declaration marks the end of the manuscript text and the beginning of reference material; floating figures or tables that were postponed from the article body will be typeset at that point.
+If you need appendices, they should go just after |\backmatter|; the bibliographic references and the author biographies should always end the article.
+
+
+
+
+\section{Preamble, title, author, and publication data}
+
+
+\subsection{Title}
+
+Define the title the usual way, using |\title|; if your title spans multiple lines, you can use |\\| to split it at better points.
+\begin{lstlisting}
+    \title{_text_}
+\end{lstlisting}
+The main title is automatically used in page headers and \caps{PDF} metadata, but you can override it using the optional declarations |\runningtitle| or |\pdftitle|. Usually only the |\runningtitle| override will be necessary because |\pdftitle| takes the same value by default.
+\begin{lstlisting}
+    \runningtitle{_text_}
+    \pdftitle{_text_}
+\end{lstlisting}
+
+
+\subsection{Author information}
+
+In contrast with the standard \LaTeX{} classes, authors are declared separately, using an |\author| declaration each. Authors will appear in the order they were declared.
+\begin{lstlisting}
+    \author[_options_]{_name_}{_bio text_}
+\end{lstlisting}
+The first mandatory argument \parameter{name} defines the author's name. Nothing else should go there, as this value is used in several points in the typesetting; in particular, the |\thanks| macro is inactive: use the affiliation, acknowledgments, or biography texts instead.
+
+The second mandatory parameter \parameter{bio text} defines the biography and contact paragraphs that appear at the end of the article, in the \emph{\abouttheauthorsname{}} section; leaving \parameter{bio text} completely empty will suppress this author's entry there.
+
+The optional parameter \parameter{options} is a list of comma-separated |key=value| definitions:
+
+\begin{itemize}
+    \item |affiliation=lab|, or |affiliation={lab1,lab2}|
+    
+        Attach affiliations with the given identifiers to the author.
+
+    \item |photo=filename|
+
+        Point to the image file with the author's portrait. No need to specify the file extension. The photo should be of proper definition and proportions, however; a square or a squarish vertical rectangle about 200--300 pixels wide is good.
+    
+    \item |nowrap|
+    
+        Specify this option to adjust the layout of the biography text, if it does not flow under the picture by at least one or a couple lines.
+\end{itemize}
+
+Finally, as with the title, you can override the authors list in the headings or \caps{PDF} metadata. Both can take either the final text or an |\and|-separated list of authors.
+\begin{lstlisting}
+    \runningauthor{_names_}
+    \pdfauthor{_names_}
+\end{lstlisting}
+
+
+\subsection{Affiliations}
+
+Affiliations are typeset in an list below the names of the authors; this allows for any ordering convention between authors and affiliations, and for authors that have multiple affiliations.
+The \parameter{identifier} makes the link between the |affiliation| value in the author declaration and the affiliation information.
+Keep the \parameter{description text} compact vertically, two or three lines at most.
+\begin{lstlisting}
+    \affiliation{_identifier_}{_description text_}    
+\end{lstlisting}
+
+
+\subsection{Publication information}
+
+The |\jotdetails| declaration defines publication and indexing information about the article, in |key=value| form (see \autoref{tab:jotdetails}).
+Usually, you will just specify the article-specific part of the \caps{DOI} identifier with |doisuffix|, since all \JOT articles will have a \caps{DOI} of the form \makeatletter\code{\jot@doijournalprefix/doisuffix}\makeatother.
+The |url| key only serves as a fallback in the page footers when no \caps{DOI} was specified.
+\begin{lstlisting}
+    \jotdetails{_key-value info_}
+\end{lstlisting}
+
+\begin{table}\centering
+    \begin{tabularx}{\linewidth-2cm}{llX}
+        \toprule
+        Key & Type & Value \\
+        \midrule
+        \code{licence} & string & Licence the authors wish to publish under (choose from: \code{ccby}, \code{ccbynd}),\\
+        \code{year} & number & Publication year, \\
+        \code{volume} & number & \dots volume, \\
+        \code{articleno} & number & \dots article number. \\
+        \\
+        \code{received} & date & Dates of initial submission, \\
+        \code{published} & date & \dots final publication, \\
+        \code{revised} & date & \dots and latest revision of the paper. \\
+        \\
+        \code{doisuffix} & string & \caps{DOI} identifier for the paper, without the resolver prefix \caps{URL}. \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Option keys for \code{jotdetails}.}
+    \label{tab:jotdetails}
+\end{table}
+
+
+\subsection{Appendices and bibliography}
+
+Any appendices immediately follow the |\backmatter| declaration; you don't need to call |\appendix|.
+
+Be sure to include DOIs (Digital Object Identifiers) for all cited articles, where available.
+
+\begin{lstlisting}
+	@article{JOT:issue2010-09/editorial,
+	  author = {Oscar Nierstrasz},
+	  title = {Ten Things I Hate About Object-Oriented Programming},
+	  journal = {Journal of Object Technology},
+	  volume = {9},
+	  number = {5},
+	  issn = {1660-1769},
+	  year = {2010},
+	  month = sep,
+	  doi = {10.5381/jot.2010.9.5.e1}
+	}
+\end{lstlisting}
+
+In the bibliography, use the |alphaurl| style for reference keys, to ensure that DOIs and URLs will appear as links in the bibliography.
+\begin{lstlisting}
+    \bibliographystyle{alphaurl}
+\end{lstlisting}
+The bibliographic references follow the appendices; you can either adopt the Bib\TeX{} way as shown here, or use the |thebibliography| environment directly.
+
+\subsection{Author biographies and acknowledgments}
+
+The |\abouttheauthors| declaration will typeset the authors' bibliographies from the data given in the preamble.
+For the camera-ready version, think of adjusting the layout to the quantity of text for each author, by toggling the |nowrap| option in the |\author| declarations.
+
+Following this, you can use the |acknowledgments| environment to mention collaborations, grants, etc.
+
+\section{Floats and program code}
+
+\subsection{Very wide floats}
+
+Usually you want figures and tables to occupy their natural width.
+When a figure is quite large, however, you should prevent it from extending into the margin, by scaling the graphics to the text width:
+\begin{lstlisting}
+    \begin{figure}
+        \includegraphics[width=\linewidth]{_$\cdots$_}
+        \caption{_$\cdots$_}
+    \end{figure}
+\end{lstlisting}
+For tables, you can control the table width using the |tabularx| package.
+
+Exceptionally, if a figure or a table really needs to be wider than the text to be legible, you can wrap the graphics or tabular in a |fullwidth| environment, to temporarily reduce the margins. The effect of |fullwidth| is shown in \autoref{fig:fullwidth}.
+
+\begin{figure}[h]
+    \begin{fullwidth}
+        \leftarrowfill\ |\linewidth| in the |fullwidth| environment \rightarrowfill
+    \end{fullwidth}
+    \leftarrowfill\ default |\linewidth| in text and floats \rightarrowfill
+    \caption{Changing the available horizontal space using the \code{fullwidth} environment. Pay attention to not include the caption inside \code{fullwidth}, else it could produce very long lines in small size, which is difficult to read.}
+    \label{fig:fullwidth}
+\end{figure}
+
+
+\subsection{Displaying code}
+
+The \jotcls sets up the |listings| package with generic defaults for simple, clean-looking listings.
+There are three cases where you might want to display code. The first is to mention program entities in the middle of a sentence; for this, use the |\lstinline| command and associated facilities from |listings|. Note however that this command will not work in some places like float captions, so we advise you to define an alias to the basic font-changing command, like so:
+\begin{lstlisting}
+    \newcommand\code[1]{\texttt{#1}}
+\end{lstlisting}
+
+The second case is to display a large piece of code; this requires a floating listing, which you will get by adding the |style=float| option to either the |lstlisting| environment or the |\lstinputlisting| command. Since this is a float, remember to set the |caption| and |label| options as well.
+Line numbers are pre-configured, and can be activated by adding |style=numbers| either to the |\lstset| declaration or to the options of individual listings, as needed.
+
+Finally, this should be rarely needed in most articles, but if you need to display short code excerpts in the flow of paragraphs, like most examples in this document, you can just use the regular |lstlisting| environment without special options.
+
+You will probably need some additional configuration to indicate the language of your listings, and e.g. to highlight parts of code; please refer to the documentation of |listings| for more precisions, but keep the number of different text styles to a minimum.\footnote{Highlighting is based on visual contrast and thus relies on scarcity to be effective.}
+
+
+
+
+\section{Various recommendations, good practices}
+
+\subsection{Encodings and language}
+
+Even though \JOT is an English publication, it's best to embrace internationalization, and have the correct |inputenc| and |babel| package declarations in your article. We recommend writing your \LaTeX{} source code in an \caps{UTF-8} editor, but other encodings are fine, as long as they are correctly explicited in the document preamble.
+\begin{lstlisting}
+    \usepackage[utf8]{inputenc}
+    \usepackage[english]{babel}
+\end{lstlisting}
+
+
+\subsection{Referring to sections and floats}
+
+The |hyperref| package provides the |\autoref| command, that replaces |\ref| but will automatically format the reference as needed, while making the whole reference a link, instead of just the number. So, instead of typing |see Figure~\ref{foo}| by hand, just use |see \autoref{foo}| instead. This works for other kinds of floats as well.
+
+
+\subsection{Better typography}
+
+In typography, attention to detail pays, but also visual simplicity and homogeneity.
+With \LaTeX{} it is often tempting to use different fonts for similar concepts like classes and files, or mathematical properties or propositions.
+It's best to keep the number of different text styles to a minimum: besides the default text font, |\texttt| and |\emph| should cover most needs.
+
+Tables or graphics with too many lines hamper legibility \cite{tufte,chicago}; to help minimize \emph{chartjunk} and maximize \emph{data ink}, \jotcls loads the |booktabs| package for you. To take advantage of it:
+\begin{itemize}
+    \item do not specify vertical rules in tables;
+    \item use |\toprule|, |\bottomrule|, and few |\middlerule| in between, instead of |\hline|;
+    \item rely on spacing and column alignment to visually separate columns (use |@{\quad}| as a column separator).
+\end{itemize}
+
+The |microtype| package can help \LaTeX{} layout more compact paragraphs with fewer hyphenations.
+
+
+
+\backmatter
+
+\nocite{*}
+\bibliographystyle{alphaurl}
+\bibliography{jot-manual}
+
+% \newpage
+\abouttheauthors
+
+\begin{acknowledgments}
+    The style and code of \code{jot.cls} was partially inspired from the previous \code{jotarticle.cls} developed at \caps{ETH}~Zurich by Susanne Cech, and from the class \code{toc.cls} for the \emph{Theory of Computing} journal.
+\end{acknowledgments}
+
+\end{document}

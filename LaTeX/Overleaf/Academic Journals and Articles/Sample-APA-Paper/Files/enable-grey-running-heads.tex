@@ -1,0 +1,6 @@
+\usepackage[usenames]{xcolor} %make running head grey
+\definecolor{RUNNINGHEADGREY}{HTML}{787878}
+\let \oldshorttitle \shorttitle
+\renewcommand{\shorttitle}[1]{\oldshorttitle{\textcolor{RUNNINGHEADGREY}{#1}}}
+\let \oldlhead \lhead
+\renewcommand{\lhead}[1]{\oldlhead{\textcolor{RUNNINGHEADGREY}{#1}}}
